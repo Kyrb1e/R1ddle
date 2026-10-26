@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Blackthorn Island Diary</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#3b2a1e;--paper:#f1e4c6;--paper2:#e8d6b0;--ink:#2a1d14;--faint:#8a6f52;--red:#8e2b1f;--rule:#c9b48a;--cover:#2b1c12;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141010;--paper:#2a221b;--paper2:#241d17;--ink:#e6d7b8;--faint:#a58c6a;--red:#d9604d;--rule:#4a3d2f;--cover:#0d0907}}
+:root[data-theme="dark"]{--bg:#141010;--paper:#2a221b;--paper2:#241d17;--ink:#e6d7b8;--faint:#a58c6a;--red:#d9604d;--rule:#4a3d2f;--cover:#0d0907}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'IM Fell English',Georgia,serif;font-size:19px;line-height:1.75}
+.cover{text-align:center;padding:12vh 1.5rem 9vh;background:var(--cover);color:#d8b878;border-bottom:6px double #8a6b3a}
+.cover small{letter-spacing:.35em;text-transform:uppercase;font-size:.75rem;color:#a98d5c}
+.cover h1{font-weight:400;font-size:clamp(2rem,7vw,3.6rem);margin:.6em 0 .2em;line-height:1.15}
+.cover p{margin:.3em auto;max-width:30em;font-style:italic;color:#c2a572}
+.cover .mono{font-family:'Special Elite',monospace;font-style:normal;font-size:.85rem;margin-top:1.6em;color:#8f7648}
+main{max-width:720px;margin:0 auto;padding:2rem 1rem 4rem}
+.part{font-family:'Special Elite',monospace;text-align:center;color:#d8b878;letter-spacing:.2em;text-transform:uppercase;font-size:.95rem;margin:3rem 0 1.2rem}
+.page{position:relative;background:var(--paper);background-image:repeating-linear-gradient(transparent 0,transparent 33px,var(--rule) 34px);background-position:0 12px;padding:1.4rem 1.4rem 1.2rem 3.4rem;margin:0 0 1.6rem;border-radius:3px;box-shadow:0 2px 0 var(--paper2),0 8px 22px rgba(0,0,0,.35);border-left:3px double var(--red)}
+.page::before{content:"";position:absolute;left:.9rem;top:0;bottom:0;width:0;border-left:1px dashed var(--rule)}
+.stamp{font-family:'Special Elite',monospace;font-size:.82rem;letter-spacing:.08em;color:var(--red);text-transform:uppercase;margin-bottom:.4rem;display:block}
+.page p{margin:.2em 0 .7em;line-height:34px}
+.page p,.page blockquote{text-align:left;hyphens:auto}
+blockquote{margin:.5em 0 .8em 1rem;padding-left:.9rem;border-left:2px solid var(--red);font-style:italic;line-height:34px}
+blockquote cite{display:block;font-family:'Special Elite',monospace;font-style:normal;font-size:.78rem;line-height:1.5;color:var(--faint);margin-top:.2rem}
+.note{font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.5!important;color:var(--faint);border:1px dashed var(--faint);padding:.5rem .7rem;margin:.6rem 0 .8rem 0;transform:rotate(-.6deg);background:var(--paper2)}
+s{text-decoration-color:var(--red);text-decoration-thickness:2px;color:var(--faint)}
+.slip{background:var(--paper2);font-family:'Special Elite',monospace;font-size:.85rem;line-height:1.5;padding:.7rem .9rem;border:1px solid var(--rule);transform:rotate(.5deg);margin:.8rem 0}
+.report{background:var(--paper2);background-image:none;font-family:'Special Elite',monospace;font-size:.92rem;border-left:3px solid var(--faint)}
+.report p,.report blockquote{line-height:1.7}
+.report::before{display:none}
+.report .stamp{color:var(--faint)}
+.report h3{font-family:'Special Elite',monospace;font-weight:400;font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin:1.6rem 0 .3rem;border-bottom:1px dashed var(--faint);padding-bottom:.2rem}
+.report ul{margin:.3em 0 .8em;padding-left:1.2rem}
+.report li{margin:.3em 0}
+table{width:100%;border-collapse:collapse;font-family:'Special Elite',monospace;font-size:.74rem;line-height:1.4;margin:.6rem 0;background:var(--paper2)}th,td{border:1px solid var(--rule);padding:.3rem .4rem;text-align:left;vertical-align:top}th{color:var(--red)}.tw{overflow-x:auto}.foot{text-align:center;font-family:'Special Elite',monospace;color:#a98d5c;font-size:.8rem;padding:1rem}
+[hidden]{display:none!important}
+.quiz{background:var(--paper2);background-image:none;border-left:3px solid var(--red)}
+.quiz::before{display:none}
+.quiz h2{font-family:'Special Elite',monospace;font-weight:400;font-size:1.15rem;letter-spacing:.06em;color:var(--red);margin:.2rem 0 .5rem;line-height:1.3}
+.quiz p{line-height:1.6!important}
+.quiz fieldset{border:1px dashed var(--faint);margin:1rem 0;padding:.7rem .9rem .5rem}
+.quiz legend{font-family:'Special Elite',monospace;font-size:.88rem;color:var(--ink);padding:0 .4rem}
+.quiz label{display:flex;gap:.6rem;align-items:flex-start;padding:.35rem .3rem;border-radius:3px;cursor:pointer;line-height:1.35;font-size:.95rem}
+.quiz label:hover{background:var(--paper)}
+.quiz label small{display:block;color:var(--faint);font-family:'Special Elite',monospace;font-size:.72rem}
+.quiz input[type=checkbox]{margin-top:.3rem;accent-color:var(--red)}
+.quiz .hint{font-family:'Special Elite',monospace;font-size:.8rem;color:var(--faint)}
+.quiz legend em{font-style:normal;color:var(--faint);font-size:.74rem}
+.quiz label.good{background:rgba(61,107,46,.16)}.quiz label.bad{background:rgba(139,26,26,.16)}
+.quiz label.miss{outline:1px dashed var(--red)}
+.quiz label.good span::after{content:' ✓';color:#3d6b2e;font-weight:bold}.quiz label.bad span::after{content:' ✗';color:var(--red);font-weight:bold}.quiz label.miss span::after{content:' (you missed this)';color:var(--red);font-size:.8rem}
+#result .score{font-size:1rem}
+.quiz button{font-family:'Special Elite',monospace;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:#f1e4c6;background:var(--red);border:0;padding:.7rem 1.2rem;border-radius:3px;cursor:pointer}
+.quiz button.ghost{background:transparent;color:var(--faint);border:1px dashed var(--faint);margin-left:.5rem}
+.quiz button:focus-visible,.quiz input:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+#result{font-family:'Special Elite',monospace;font-size:.86rem;line-height:1.55;border:1px solid var(--rule);background:var(--paper);padding:.8rem 1rem;margin-top:1rem}
+#result .ok{color:#3d6b2e;font-weight:bold}#result .no{color:var(--red);font-weight:bold}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #result .ok{color:#8fc46f}}
+#result ul{margin:.4rem 0 0;padding-left:1.1rem}
+@media(max-width:520px){body{font-size:17px}.page{padding:1rem .9rem 1rem 2.4rem}.page::before{left:.6rem}.page p,blockquote{line-height:30px}}
+</style>
+</head>
+<body>
+<header class="cover">
+<small>A Mystery in the Classical Detective Tradition</small>
+<h1>The Blackthorn<br>Island Diary</h1>
+<p>Recorded from the private journal of Detective Edmund Vale, with the Inspector’s Epilogue</p>
+<p class="mono">Saturday, 16 October 1909 — Blackthorn Island<br>(the extended edition)</p>
+</header>
+<main>
+
+<div class="part">Part One · The Crossing</div>
+
+<section class="page">
+<span class="stamp">Prologue — A Familiar Coat</span>
+<p>I have been asked, more than once, whether a man may recognise evil when it stands beside him. I have always answered that evil is rarely so obliging as to wear a monstrous face. It comes instead in a familiar coat, speaks with a measured voice, and offers to hold the door while one passes through. It remembers your father’s watch. It asks after your health. It knows the stairs of a house you have told no one you once walked.</p>
+<p>I begin this journal upon the lonely crag of Blackthorn Island, where the sea has risen like a dark wall about the cliffs and the rain beats upon the leaded windows as though a thousand impatient fingers sought admission. Nine guests came here at the insistence of Sir Alistair Wren, a gentleman whose fortune was old, whose manners were faultless, and whose letters were strangely insistent. I was the tenth to arrive, summoned in my professional capacity to investigate a matter he declined to explain by post.</p>
+<p>I keep this book as I have kept all my books: in a small, upright hand, with the date at the head of every entry and no word that I could not defend before a magistrate. I was taught the habit by my father, a harbour pilot, who held that a log not written at the time is merely a story, and that stories improve with every telling in precisely the wrong direction. I shall be careful to set down only what I saw. That, at least, is my intention.</p>
+<p>My father kept his log in pencil, because ink, he said, was for men who meant to be believed. I keep mine in ink, because I have been in my profession long enough to know that pencil is for men who mean to be forgiven. I have never decided which of us was right, and I find I am no longer certain that the question is a fair one.</p>
+<p>I have been told that a man who keeps a journal is a man who does not trust his own memory. I would answer that a man who keeps one does not trust anyone else’s, and that the second distrust is by far the older and the more useful. I would add, though no one has asked me, that there is a third distrust, older still, which a man does not write down at all. It is the distrust of the one who is holding the pen.</p>
+</section>
+
+<section class="page">
+<span class="stamp">The Household at Blackthorn</span>
+<div class="tw"><table><tr><th>Occupant</th><th>Station</th><th>Connection to the Anna Grey affair (1892)</th><th>Demeanour</th></tr>
+<tr><td>Sir Alistair Wren</td><td>Host, landowner</td><td>Former employer of Anna Grey; suppressed the original inquest findings</td><td>Dominant, severe</td></tr>
+<tr><td>Miss Eleanor Wren</td><td>Niece and heiress</td><td>Resident at Wren Hall during the 1892 incident</td><td>Anxious, reserved</td></tr>
+<tr><td>Dr. Samuel Harcourt</td><td>Physician</td><td>Signed the original medical examiner’s certificate</td><td>Evasive, nervous</td></tr>
+<tr><td>Mrs. Beatrice Vale</td><td>Guest (no relation to the narrator)</td><td>Former clerk at the county magistrate’s registry</td><td>Observant, sharp</td></tr>
+<tr><td>Capt. Hugh Rook</td><td>Retired naval officer</td><td>Secretly betrothed to Anna Grey before her death</td><td>Sullen, guarded</td></tr>
+<tr><td>Mr. Lionel Ashcombe</td><td>Barrister and family solicitor</td><td>Represented the Wren estate at the official inquiry</td><td>Pedantic, formal</td></tr>
+<tr><td>Miss Clara Finch</td><td>Young pianist</td><td>“Niece” of Anna Grey; searching for family papers</td><td>Vigilant, grave</td></tr>
+<tr><td>Rev. Matthew Bell</td><td>Parish priest</td><td>Heard Anna Grey’s last spiritual confidence</td><td>Penitent, shaken</td></tr>
+<tr><td>Mr. Felix Marlow</td><td>Antiquarian</td><td>Appraising the Wren collection and historical documents</td><td>Calculating</td></tr>
+<tr><td>Lady Margaret Sloane</td><td>Dowager, old friend of the family</td><td>Present at Wren Hall, November 1892</td><td>Polished, composed</td></tr>
+<tr><td>Edmund Vale</td><td>Detective (narrator)</td><td>Junior constable on the coastal patrol in 1892</td><td>Watchful, silent</td></tr>
+<tr><td>Sgt. Josiah Crane</td><td>Retired sergeant; keeper of the gatehouse lamp (by his own account)</td><td>My own senior officer on the coastal patrol in 1892; gave the order to strike the lines</td><td>Steady, unhurried, kindly</td></tr></table></div>
+<div class="note">The list above is of persons as I met them, not as Sir Alistair’s cards named them. — E.V.</div>
+<div class="note">Mrs. Vale and I share a surname by coincidence alone. It amused us at the dinner table. It does not amuse me now.</div>
+</section>
+
+<section class="page">
+<span class="stamp">The Island</span>
+<p>The island has but one landing-stage, one narrow track cut into the shale, and no village. Wren Hall stands at its centre, black against whatever sky the day has chosen. A quarter of a mile to the north the cliff track ends at the North Cliff Drop, where a single blackthorn grows; to the south lie the boathouse and the reef. Between the two, like a man standing between two judges, sits the gatehouse, which I shall come to.</p>
+<p>I drew a plan of it in the back of this book on the first evening, from memory and from what I could see out of the window of the north bedchamber. It is a poor plan. It has no scale, and the cliff track bends more sharply than I have drawn it. I have noticed that I drew the gatehouse first, and largest, before the Hall.</p>
+</section>
+
+<section class="page">
+<span class="stamp">Sat 16 Oct · 2.10 p.m.</span>
+<p>The crossing was foul. The mainland ferryman put us ashore at the landing-stage and would not wait for the tide, muttering something about the weather turning by nightfall. I counted my fellow passengers as they climbed the shale track: eight others, all silent, all wet to the knees. Nobody spoke of why they had come. I observed that nobody asked.</p>
+<p>The ferryman was a small, sour man in a coat the colour of the sea at its worst, and he handed our bags up onto the slip as though they were bait. He did not say goodbye. He did not look at the house. When the last trunk was ashore he put his back into the oars, and I watched his boat shrink to a dark comma on the grey water and thought that it was the last piece of the mainland I should see for some time.</p>
+<p>During the crossing I had tried to read the faces in the open boat the way I read tide tables: for what they promised and what they concealed. A grave young woman in a plain grey travelling dress held a small leather case in her lap and did not once look at the water. A large, weathered man in a naval greatcoat sat with his jaw set against the spray and a hand that trembled whenever the boat struck a wave. A thin old clergyman prayed with his lips, not his voice. A neat, bright-eyed woman in a dark bonnet watched all of us in turn, and when her eyes met mine she did not look away. I had the unpleasant sense of being counted by someone who counted better than I.</p>
+<p>I have walked many shores, but never one that offered so little in welcome. There was no gull on the slip, no net drying, no smoke from any chimney but the one at the Hall, which stood on its crest like an accusation. The shale shifted under our boots with a sound like a crowd drawing breath, and nobody walked beside anybody else.</p>
+<p>Wren Hall is a long grey house with more chimneys than I could count before the rain began. Sir Alistair had sent his servants ashore for the week; a cold luncheon was laid out in the hall, and the pantry door was locked. The island keeper, one Tobias Marsh, had crossed to the mainland that morning in the lugger, leaving his small boat moored at the pier. I recall thinking that a man who dismisses his servants wishes to be unobserved. I wish now that I had thought it harder.</p>
+<p>I recall, too, that on the threshold I paused, as one does before a cold bath, and that my left foot went first onto the worn step, though I had never been told which of the two steps was sound.</p>
+</section>
+
+<section class="page">
+<span class="stamp">2.55 p.m. · The Ground Floor</span>
+<p>Before tea I walked the ground floor alone, under the pretext of finding my room, and set down the plan of it here because a man who knows a house by its doors is a man who can leave it.</p>
+<p>There are eleven doors on the ground floor that I could see, and one I could not: a low, narrow door behind the screen passage, painted the same dull brown as the wainscot, which I did not try. The hall opens upon the drawing room to the left and the dining hall to the right. The library lies at the end of the east wing, and the study beyond it, and between the two, I was told by no one, there is a passage that does not appear upon any plan. I do not know why I wrote that sentence. I leave it, because I promised myself that nothing would be struck out.</p>
+<p>The pantry door, as I have said, was locked. I rattled it once, as a guest might, and was satisfied. A man who rattles a door only once has already decided what is behind it.</p>
+</section>
+
+<section class="page">
+<span class="stamp">3.40 p.m. · Tea</span>
+<p>Tea was taken in the drawing room, and I used the hour to learn my fellow guests the way a gardener learns a border: by what grows where. Lady Sloane sat nearest the fire in grey silk that smelled of lavender and old paper, and she poured for everyone, so that no one could be said to have served himself. Mr. Marlow wore a jeweller’s loupe on a chain and turned over the teaspoons as though they might confess their hallmark. Miss Finch said little and watched the door. Miss Eleanor Wren kept her gloves on indoors, and twice I saw her slide one hand beneath the other, as if to keep it from being read.</p>
+<p>The drawing room was warmer than the rest of the house by a margin that felt dishonest. Somebody had built the fire for show, and it threw a great deal of light and no heat, so that we sat with our hands out toward it like penitents. Over the mantel hung a bad portrait of some Wren ancestor in a wig, and I noticed that more than one of us contrived to sit with our backs to it.</p>
+<p>I made a habit, which I have always made, of watching the hands rather than the faces. Faces have been trained all their lives to do what is wanted of them. Hands are neglected, and go their own way. Captain Rook’s turned his cup a quarter-turn each time he lifted it, as a man turns a wheel to keep a ship off a rock. Dr. Harcourt’s kept returning to his waistcoat pocket and finding it empty. Mr. Ashcombe’s lay folded on his knee like two letters awaiting a stamp. Reverend Bell’s worried the hem of a napkin he had not been given. Only Lady Sloane’s hands were perfectly still, which in a woman of her years is either a gift or a discipline, and I had not yet learned which.</p>
+<p>Mrs. Vale took her tea without sugar and drank it without once lifting her eyes from the rim, and I understood that she was listening with the whole of her body, as a clerk does who has spent twenty years hearing what is said at the other side of a counter. She asked me, pleasantly, whether I had ever been to the island before. I said that I had not. She said, “How odd. You walked in as though you had,” and passed on to the weather before I could answer.</p>
+<p>The house is older than its owner’s manners. The stairs complain in a particular order — the fourth, the ninth, the board on the landing — and I caught myself stepping over the ninth before anyone had warned me of it. I made nothing of it then. A man who has walked a coast for a living learns to place his feet without thinking, and I once walked this one. I have not mentioned the fact to anyone. No one has asked.</p>
+<p>Somewhere beneath us a clock struck four and was answered, a little late, by another. I wondered which of the two was lying.</p>
+</section>
+
+<section class="page">
+<span class="stamp">4.30 p.m. · The Gatehouse</span>
+<p>I could not sit still in the drawing room, so I took my coat and walked down to the gatehouse, where a light was already burning against the early dusk. And there, trimming the wick of a horn lantern with the blunt thumb of his left hand, stood Sergeant Josiah Crane.</p>
+<p>The path down to the gatehouse is a short one, no more than two hundred paces, but I took it slowly, as I take a path I have a reason to dread. The wind was already rising, and the gorse along the verge lay over in long grey waves, and I thought, not for the first time that day, that the island seemed to breathe in and out through its teeth.</p>
+<p>The gatehouse itself is a low square building of the same black stone as the Hall, with a slate roof and a single small window that looked out toward the landing-stage. I did not go in; he came to the step to meet me, as he had always come out to meet me, and we talked on the threshold with the door drawn to behind him. It did not strike me as strange. It did not strike me as anything.</p>
+<p>I had not seen him since the winter of 1898, and he has not changed. He is sixty or a little over, thick through the shoulders, with a face like a worn coin and a drooping grey moustache stained yellow at the edges by pipe smoke. The tip of his left thumb is missing — a rope off the Needles, he used to say, and a lesson about gloves. He smells of tarred twine, peppermint, and wet wool. His voice has the slow Cornish vowels that once made the whole station feel safer than it was.</p>
+<blockquote>“Constable Vale. Detective, I should say. They have done you proud, lad.”</blockquote>
+<p>Sir Alistair had kept him on these three winters to mind the gatehouse lamp, he told me. The pay was poor and the company worse, and he was glad of a face from the old days. We stood together while the dusk came on. He asked after my father’s watch, and I took it out, and he held it to his ear as he always did and said that it still lost its four minutes.</p>
+<p>It was Crane, in the winter of 1892, who called me into the station office and told me which lines of the Grey report would be struck, and where I should sign. “It was never your doing, lad,” he said now, very gently, as if he had heard me think it. “You were given an order. A man is not answerable for an order.”</p>
+<p>I said nothing. The lantern threw both our shadows against the gatehouse wall, and I noticed, for no reason at all, that the one beside mine was the sharper of the two.</p>
+<p>He did not ask me in, and I did not ask to come. He did not ask who else had landed, nor how many, nor whether the guests were comfortable. I put it down to a lamp-keeper’s discretion. It occurs to me now, and I set it here only because I set everything here, that in all the time we stood together nobody passed us on the track, nobody called from the Hall, and nobody, going by, looked at the two of us standing on the step.</p>
+</section>
+
+<section class="page">
+<span class="stamp">5.30 p.m. · The Gale</span>
+<p>The gale arrived an hour before dusk. I was standing at the boathouse door when it tore the keeper’s boat from its iron moorings and dashed the hull against the teeth of the black reef. It broke like a biscuit. No signal flame can cross such a storm; we are cut off until the tide and tempest permit otherwise.</p>
+<p>I stood at the boathouse door a long time after the hull had gone, watching the pieces turn over in the foam. Planking, a thwart, the red-painted bailer bobbing like a heart. There is a particular silence that comes after a thing has been destroyed in front of one, which is the silence of having been told something. I did not say it aloud, but I knew that the last door out of the island had been closed with the tide’s own hand.</p>
+<p>When I climbed back, the whole house had lit itself, window by window, and from the track it looked like a liner riding at anchor in a harbour of its own making. I counted the lit panes out of habit and made them thirty-one.</p>
+<p>Sir Alistair merely smiled when the loss was reported. “Then,” said he, “we must make the best of one another.” I did not like the way his eyes lingered upon me when he spoke those words.</p>
+</section>
+
+<section class="page">
+<span class="stamp">6.20 p.m. · The Boathouse</span>
+<p>I went down to the boathouse again, in oilskins borrowed from a peg in the hall, to learn what the island still held in the way of help. The lugger was gone with Marsh. The loss of the small boat I have recorded. In a tarred chest at the back, under a coil of mooring line, I found the signal rockets — a dozen of them — and the chest locked with a brass padlock whose key was nowhere about the room. The padlock was new. The rest of the chest was rotten with salt.</p>
+<p>I am a patient man with a lock, but I did not try it. It is one thing to be shut in by weather. It is another to be shut in by a host who has taken the trouble to buy a padlock.</p>
+<p>I walked back up the track with the wind trying to take the coat off my shoulders, and I heard myself say aloud, to no one, that it had been planned from the first letter. A little later I found that I was waiting for an answer. None came, and I was grateful, and I could not have said why.</p>
+</section>
+
+<section class="page">
+<span class="stamp">7.15 p.m. · The Rooms</span>
+<p>The rooms had been allotted before our arrival, each name written on a card and tacked to a door in Sir Alistair’s narrow hand. Mine was the north bedchamber, at the far end of the old wing, beside a low door that I was told led to a disused service stair. I wondered at the choice. I did not wonder very hard. Looking back across the page, I notice that I was not surprised. There were ten cards on ten doors, and I counted them, as I count everything. It did not occur to me to ask where the Sergeant was to sleep.</p>
+<p>The north bedchamber was cold, square, and very clean, with a narrow iron bed, a washstand, a writing table under the window, and a pair of faded engravings of a naval action I could not name. A small fire had been laid and not lit. I lit it myself, and watched it take hold, and was a little ashamed of how much I wished it to.</p>
+<p>I read the other cards as I passed along the gallery. Lady Sloane had been given the room above the portrait gallery, Mr. Marlow the one nearest the library, and the Reverend a small chamber at the end of the east wing, nearest the chapel, as if his host had thought that a priest ought never to be far from his work.</p>
+<p>I unpacked as I always do: razor, Bible, spare collars, and the leather travelling case that never leaves my hand, which I locked and whose small key I slid onto my watch-chain. A man of my profession learns to keep one place in the world where nobody may look.</p>
+<p>I tried the low door beside the bed once, from my side. It was bolted on the inside, and I drew the bolt, and looked at the dark stair beyond it for the space of a few breaths. Then I shot the bolt again and turned the key. The stair smelled of dust and cold stone, and, faintly, of peppermint. I told myself that it was my own pocket.</p>
+<p>On my way down I passed the hall, where Dr. Harcourt’s medical bag stood open upon a chair, its velvet-lined cases showing like the inside of a coffin. He was at the window complaining to Lady Sloane of the damp. I closed the clasp for him, as one shuts a careless door, and he thanked me without turning his head.</p>
+</section>
+
+<section class="page">
+<span class="stamp">8.30 p.m. · Dinner</span>
+<p>Dinner was served in the long dining hall beneath oil portraits whose varnished eyes seemed to follow every movement of the silver cutlery. Sir Alistair sat at the head of the dark mahogany table, his hair silvered and impeccably brushed despite the tempest outside. He spoke of the heavy house as though it were a ship anchored in deep water, and of the storm as an uninvited guest who had merely arrived ahead of schedule.</p>
+<p>The soup was good, and nobody finished it. The footman’s absence was felt at every course; we passed dishes from hand to hand, awkwardly, like guests at a wake who have forgotten whose it is. The candles in their heavy branches burned with a steady, almost insolent calm, while at the window the storm leaned its whole weight against the glass.</p>
+<p>Sir Alistair ate nothing at all. He cut his bread into small even squares, and arranged them at the edge of his plate in a line, and when the line was complete he began again. I have seen the same thing in men awaiting sentence, and in one or two awaiting the moment of passing it.</p>
+<p>I had been placed at the foot of the table, directly opposite my host, with Mrs. Vale on my right and Mr. Ashcombe on my left. It was an honest placing, in the sense that a man at the foot of a table can see everyone and be seen by everyone. Mr. Ashcombe discussed the law of easements through three courses without once being asked. Mrs. Vale said nothing, and cut her meat into pieces so small that I wondered whether she meant to eat it or to count it.</p>
+<p>There were eleven places laid. I counted them twice. Nine were taken by the guests, one by Sir Alistair, and one by myself, which should have made eleven and did. It is only now, setting the count against the page, that I see how neatly the arithmetic leaves a chair for nobody, and I do not know why a careful man should have found that comfortable.</p>
+<p>Following the soup, he laid nine heavy linen envelopes upon the table. Each bore a guest’s name in his fine, narrow hand. He did not distribute them. Instead he asked the room to recall a certain bitter winter seventeen years earlier, and the death of a young governess named Anna Grey, officially declared a tragic misadventure upon the sea-cliffs.</p>
+<p>The silence that fell was immediate and suffocating. Captain Rook’s wine glass stopped halfway to his mouth. Dr. Harcourt fixed his stare upon his fork. Reverend Bell rolled the edge of his napkin between trembling thumb and forefinger. Miss Finch, at the far end, set down her spoon with a care that rang louder than if she had dropped it. Lady Sloane did not move at all, which I thought the most eloquent response of the evening.</p>
+<p>Sir Alistair declared quietly that every person at his table had profited, directly or indirectly, from the silence that followed Anna Grey’s fall.</p>
+<blockquote>“I have invited you because I now possess unassailable proof that the verdict was false, and that one among us is a murderer. By morning light, the evidence contained within these nine sealed files will be delivered into the hands of the mainland constabulary. Justice has been delayed by seventeen years; it shall not be delayed by another night.”<cite>— Sir Alistair Wren, 16 October, 8.45 p.m.</cite></blockquote>
+<p>Nobody asked how the files were to be delivered to the mainland, with the boat gone and the sea in the state it was. I noticed that, too. I noticed that all of us noticed, and that none of us said so, and I thought: here is a table at which everyone has already agreed to be afraid.</p>
+<p>Miss Finch was the only one who looked at him while he spoke. The rest of us looked at the cloth, the candles, the dark glass, each other’s hands. She looked at him as a person looks at a door that she has been told will open, and I saw her fingers move once upon the clasp of the small leather case that lay beside her plate, where she had set it as if it were a piece of the service.</p>
+</section>
+
+<section class="page">
+<span class="stamp">9.35 p.m. · The Screen Passage</span>
+<p>The company broke up without a word of leave-taking, as a jury does. I stayed behind in the hall on the pretext of the fire, and so it happened that I was standing in the dark of the screen passage when Lady Sloane and Reverend Bell stopped at the foot of the stairs, not ten feet from me, and did not see me.</p>
+<p>The screen passage is a narrow, draughty place between the hall and the back stairs, hung with a pair of tattered regimental flags that no one has ever dared to take down. I have used such places before. A man in a dark coat standing in the lee of a dark curtain is not hidden so much as overlooked, and the difference between the two is the whole art of my trade.</p>
+<blockquote>“He means to put it all in the post by morning,” said the Reverend. His voice was a dry thread. “All of it, Margaret. The child, too.”</blockquote>
+<blockquote>“He means to put in what serves him,” said Lady Sloane. She spoke in her ordinary drawing-room voice, which was somehow the worst of it. “He has never in his life told anything he could sell. Look to who stands nearest to him, Matthew, and ask what that man was paid.”</blockquote>
+<p>She went up. The Reverend stood a moment with his hand flat on the newel post, as if it were the neck of an animal, and followed. I stayed where I was until the hall clock struck ten. A detective is permitted to listen at a door. I do not know whether he is permitted to go cold at hearing himself described.</p>
+<p>I have turned the sentence over many times since. <i>Look to who stands nearest to him.</i> I am a man who stands nearby; it is, I have been told, my chief professional virtue. I wrote the words down in the dark of the screen passage, by feel, and found in the morning that my hand had pressed so hard that the pencil had gone through the leaf.</p>
+</section>
+
+<section class="page">
+<span class="stamp">10.30 p.m. · The Landing</span>
+<p>Sir Alistair caught me on the landing as the others went up, one hand upon the banister, the other holding a candle that did not shake. He is a man who has never needed to raise his voice.</p>
+<p>The landing of Wren Hall is wide enough for a small carriage, and he had chosen it carefully. There was a window on his left, black with rain; a long-case clock on his right, ticking a half-beat behind the clock below; and the stair going up into shadow behind him. He stood in the one place where the whole house could be heard and no one could be sure of being overheard.</p>
+<blockquote>“You have not asked me what I want of you, Mr. Vale.”</blockquote>
+<blockquote>“I assumed you would tell me when you were ready.”</blockquote>
+<blockquote>“Quite so. I am old, and I find that I have kept a great many things in the dark that wished to be kept in the light. Tomorrow I shall let them out. I should like you to be standing nearby when I do.” Then, so lightly that I might have imagined it, he added: “You always did stand nearby, Constable.”</blockquote>
+<p>He bade me goodnight and went up. I stood where I was until his light had gone round the turn of the stair.</p>
+<p>Nobody on this island had yet used that word. I have gone over every letter I wrote to him and cannot find where I gave it away. I told myself that an old man’s tongue slips back to the rank a visitor held when he was last useful. I told myself that for some while, and the candle on the landing table burned down a full inch while I did it.</p>
+<p>He had said it as a man says the name of a dog that has come home. There was no accusation in it, and no menace; that was what I could not forgive. I stood on the board that complains, the one at the landing, and it did not complain, and I took my weight off it very carefully, as though it might.</p>
+</section>
+
+<section class="page">
+<span class="stamp">11.55 p.m. · Sleepless</span>
+<p>I cannot sleep. The wind has found every gap in my window frame and the curtains breathe in and out like a sleeper. I have gone over the faces at the table until they run together. Rook’s hand shook. Harcourt would not look up. Bell was grey as tallow. And I sat very still, as I have trained myself to sit, and watched Sir Alistair watch me.</p>
+<p>I lay on top of the coverlet with my boots on, which is a habit of the coastal patrol, and listened to the house. A great building at night is never silent. It ticks, and settles, and sighs along its flues; pipes knock somewhere in the walls with a sound like a man knocking politely at the wrong door. I tried to sort the noises into those that belonged to the house and those that belonged to somebody, and gave it up at about the hour when I found that I could no longer tell them apart.</p>
+<p>At twenty to midnight there were footsteps overhead in the east gallery, quick and light, then nothing. I did not rise. A detective ought to have risen. I put it down to the house.</p>
+<p>I should add that my boots, when I lay down, were dry. I remember thinking so, with a small and idle satisfaction, because they had been wet to the ankle at the boathouse, and the fire had done its work. I record it as a fact among facts. I would not ask a reader to attach any importance to it. I did not, at the time.</p>
+</section>
+
+<div class="part">Part Two · The Purge</div>
+
+<section class="page">
+<span class="stamp">Sun 17 Oct · 12.40 a.m.</span>
+<p>The low door beside my bed opened without a sound, and Sergeant Crane came in from the service stair with his pipe already between his teeth. He could always move quietly for so large a man; it was the first thing he ever taught me on the coastal patrol. He sat himself on the window seat, took a long time over the pipe, and left me to speak first.</p>
+<blockquote>“He knows, Sergeant. He called me Constable on the stairs.”</blockquote>
+<blockquote>“He has always known, lad.” Crane struck a match against his thumbnail. “Don’t look at me like that. A man who pays for silence keeps a very exact account of who has been paid.”</blockquote>
+<blockquote>“I mean to tell them, in the morning, whatever he says. I have carried it long enough.”</blockquote>
+<p>He blew out a long breath of smoke, and for an hour afterwards the room smelled of peppermint and shag tobacco.</p>
+<blockquote>“In the morning,” said Crane at last, “the old man will be saying a great many things. It may be that he finds no occasion to say them.”</blockquote>
+<blockquote>“What do you mean by that?”</blockquote>
+<p>But he only smiled at me, with that slow, tired kindness I had not seen for eleven years, and told me to get some sleep. When I looked again the window seat was empty, and the low door stood very slightly open. I closed it and turned the key. I did not ask myself who had unlocked it.</p>
+<p>I record that I had locked the low door when I came up, because I remember the small cold click of the key and the weight of it dropping into my palm. I record also that I did not hear it turn again. He was simply in the room, as the cold comes into a room when a window has been left on the latch, and I did not find it odd until he had gone.</p>
+<p>There was no ash upon the window seat when I looked. There was no scorch upon the cushion, and no smell, after the first hour, of anything at all. I put my hand where he had sat and the cloth was cold. I thought: he sat very lightly. I thought: it is an old wool. I thought a number of things, and I wrote none of them down until now.</p>
+</section>
+
+<section class="page">
+<span class="stamp">6.15 a.m. · The Study</span>
+<p>The household was shattered at dawn by a piercing cry from the east wing. Miss Eleanor had found her uncle seated in his leather armchair in the study, his head inclined sideways as if considering a difficult line in an open volume. The oil lamp had burned down to a foul grease. A porcelain teacup stood cold and half-emptied beside his right hand. Sir Alistair Wren was dead.</p>
+<p>I have read, in the files of other men, a hundred accounts of a body found at dawn, and I know how they go: the pale light, the stillness, the cold hearth. I have written such accounts myself. Nothing in the practice had prepared me for how small he looked. Sir Alistair Wren had filled every room he stood in for sixty years, and he sat now in a chair that seemed too large for him, with his hands open on the arms and his silver hair, for once, a little untidy.</p>
+<p>The study smelled of lamp-oil, and cold tea, and under it of something faintly sweet that I could not place and did not at the time try to. Miss Eleanor stood in the doorway with both hands pressed over her mouth. She did not scream again; she made, instead, a small continuous sound like a kettle on the point of boiling, and Mr. Marlow, with surprising gentleness, led her to a chair in the corridor and put his own coat over her shoulders.</p>
+<p>Dr. Harcourt made a hasty examination and pronounced the cause to be acute alkaloid poisoning, though he confessed himself unable to name the toxin without laboratory reagents. There was no sign of struggle. The heavy oak door was locked from the inside, the iron window latches fast, and the key lay upon the Turkish carpet two paces from the corpse. Yet my inspection of the wainscoting revealed a hidden panel opening upon a narrow service passage that runs directly to the library.</p>
+<p>I note the posture of the body as I would note it for a magistrate. The head was turned a little to the left; the right hand lay open; the left, which I should have expected to find holding the book, had slipped down between the arm of the chair and the cushion, and in it, when I lifted it, there was nothing at all. The page of the open volume had not been turned for some while, for the paper had taken the curve of the lamp-heat. Whatever he had been reading when he stopped, he had stopped reading it a good time before he stopped.</p>
+</section>
+
+<section class="page">
+<span class="stamp">6.40 a.m. · A Small Matter</span>
+<p>I set down here a small matter, because a careful man records small matters. When Miss Eleanor’s cry came I was <s>already asleep</s> already dressed, collar and boots and coat, standing at my window. I had risen at five, as I always do. Her voice reached me through two doors and a corridor, and I was in the east wing before Mr. Ashcombe had found his dressing gown.</p>
+<p>I have since gone back over that quarter of an hour so often that its details have worn smooth, like a coin passed from hand to hand. I know the stair I took, and the number of strides along the east corridor, and the precise angle at which Mr. Marlow stood against the window. What I cannot recover is the interval before the cry, the time between rising and being dressed and standing at the glass, which I seem to have lost entire. I put that down, as I put everything down, to the hour.</p>
+<blockquote>“You are quick, Detective,” said Mr. Marlow from the stairhead, his loupe swinging idly on its chain.</blockquote>
+<blockquote>“I sleep lightly,” I said. It was true. It was one of the truest things I have said on this island.</blockquote>
+<p>I observed, while the doctor was bent over the body, that my cuffs were damp to the elbow. I put it down to the open window, and the mist that comes in off the water, and the fact that I had been standing before it a long time.</p>
+<p>I observed also, and I put this down for completeness only, that the window of my bedchamber, when I went back for my pocket-book at seven, was fast shut and latched on the inside. I had not shut it. I remembered it as open. It did not occur to me to wonder who had been in my room, and I have not allowed it to occur to me since.</p>
+</section>
+
+<section class="page">
+<span class="stamp">7.10 a.m. · The Wainscot</span>
+<p>I began the examination of the study wainscot while Dr. Harcourt and Mr. Ashcombe stood just inside the doorway, watching me and saying nothing. Sergeant Crane had come up from the gatehouse at the first alarm and now stood at my shoulder, his horn lantern unlit, his cap crushed in his blunt hands.</p>
+<p>The study was a square, high room lined to shoulder height with dark panelling, carved at the cornice with a running pattern of thorn and berry. I have never seen such a pattern used in a room of this kind, and thought it a curious thing for a man to choose to look at while he worked. A heavy desk stood against the far wall, and before the hearth the leather chair, and in it the dead man, patient as a clock.</p>
+<p>I worked methodically, as I was taught: from the door inward, from the floor upward, my knuckles brushing each board lightly and my ear laid to the sound. I was aware of the doctor’s breathing, and of the lawyer’s, and of a third presence at my shoulder that I did not trouble to turn and look at, since I knew precisely where it would be standing.</p>
+<blockquote>“Third panel from the hearth,” he murmured. “They always hide it behind the third.”</blockquote>
+<p>I had not asked him. I laid my palm against the wood and pressed, and the panel gave way inward with a long, dry sigh of old hinges, and the narrow service passage opened behind it like a throat.</p>
+<blockquote>“There,” said Crane softly. He was looking not at the passage but at the dead man in the leather chair. “He went easy, lad. Look at his face. Easier than she did.”</blockquote>
+<p>I did not answer, for the others were present. I did observe that Dr. Harcourt, turning to look into the passage, stepped round the place where the Sergeant stood, as a man steps round a pillar, without seeming to know that he did it. I put it down to a physician’s habit of courtesy.</p>
+<p>I introduced no one. It seemed unkind to present a lamp-keeper to a roomful of the bereaved, and nobody asked who he was. I took it for tact.</p>
+<p>The passage was narrow, and dry, and smelled of lamp-oil and the sweetness I had noticed in the study. I put my lantern into it and the light went a long way. On the floor, close to the panel, the dust had been disturbed by something that was not a foot: a long soft drag, the width of a tray, and beside it, very clear, the print of a heel with a ring of nailheads. I measured it, and it was not the print I would have expected. It was the print of a man of my own size.</p>
+</section>
+
+<section class="page">
+<span class="stamp">8.00 a.m. · The Search</span>
+<p>I searched the study while the others breakfasted in silence. Sir Alistair’s desk had been thoroughly pillaged. The nine sealed envelopes were gone, as was the narrow black ledger bound in pigskin that he had carried everywhere. Upon the library window sill I found a faint, wet footprint, though the carpet within was perfectly dry. Whoever stood there came in from the rain and left by the same road.</p>
+<p>I took my time. A search is a conversation with a room, and the room will tell you a great deal if you do not interrupt it. The desk had been gone through with more haste than skill: drawers pulled out and left at angles, papers swept aside, a bottle of ink knocked over and allowed to bleed into the blotter. It was the work of someone who knew what he wanted and did not mind being seen to want it. Or it was staged to look so, which is the oldest trick that I know.</p>
+<p>The wet print on the library sill was small and sharp at the heel, with a faint ring of rust where nailheads had bitten the wood. I measured it with a pocket rule and wrote the figure in my book. I did not trace it, as I might have done, and I did not ask myself why I felt no need to.</p>
+<p>A scrap of paper lay in the east corridor, inscribed in Sir Alistair’s own hand: <i>not the first</i>. I have placed it with the other items I mean to keep. Captain Rook blustered that the killer must be among us. Mr. Ashcombe objected sharply to the word “murder” until chemical analysis could be conducted. I thought it a curious thing, to defend a word.</p>
+<p>I put down here the things I have kept, so that there shall be one list in this book that I cannot be accused of improving: the scrap in the dead man’s hand, <i>not the first</i>; the measure of the print upon the library sill; a thread of dark wool, snagged upon the third panel; and the key from the study carpet, which I did not pocket, but which I looked at for some time. I have asked myself since why I looked at it so long, and the answer, I think, is that it was the only object in the room that made no pretence of being anything other than what it was.</p>
+<div class="slip">Kept in this book: the scrap in the dead man’s hand · the print on the library sill · a thread of dark wool on the third panel · the key from the carpet.</div>
+<span class="stamp">Chronology, night of 16–17 October</span>
+<div class="tw"><table><tr><th>Time</th><th>Event</th></tr><tr><td>10.15 p.m.</td><td>Sir Alistair retires to the study with the sealed envelopes.</td></tr><tr><td>11.40 p.m.</td><td>Footsteps heard in the east gallery by Miss Clara Finch.</td></tr><tr><td>2.10 a.m.</td><td>Grandfather clock in the servants’ hall stopped abruptly.</td></tr><tr><td>6.15 a.m.</td><td>Corpse discovered by Miss Eleanor Wren; study locked from within.</td></tr></table></div>
+<div class="note">I note that the third entry was supplied by Miss Finch, and the fourth by the household at large. The interval between the second and the third is the only part of the night for which no one has offered me an hour.</div>
+</section>
+
+<section class="page">
+<span class="stamp">9.20 a.m. · The Library</span>
+<p>Mr. Marlow was waiting for me in the library with a cold pot of tea and the air of a man who has laid a small trap and is too well-bred to mention it.</p>
+<p>The library at Wren Hall is the best room in the house, and the least used. It runs the full depth of the east wing, two storeys high, with a gallery on iron brackets and a rolling ladder, and shelves of calf bindings that have not been opened in my lifetime. Marlow had drawn a chair up to a table beneath the window and laid out two cups, as though he had known I would come, though I had not known it myself.</p>
+<p>I have interviewed men who sweated, men who wept, and one memorable gentleman who recited the Book of Common Prayer from beginning to end in order to avoid answering my questions. I have never been more uneasy than I was in the company of that quiet man with his loupe and his teacups, who asked nothing and noticed everything, and who treated every pause as a gift.</p>
+<blockquote>“I have been wondering,” he said, “how you came to find the panel in the study wainscot so quickly.”</blockquote>
+<blockquote>“I tapped every board in the room.”</blockquote>
+<blockquote>“Yes.” He turned a teaspoon over in his fingers. “But you began at the right one.”</blockquote>
+<p>He is a collector of small things, and I have come to see that he collects discrepancies as others collect seals. “I mean nothing by it,” he added, and set the spoon down, and looked at me with those pale, patient, appraising eyes — and I understood that he meant a good deal.</p>
+<p>I answered that a house of this age keeps its secrets in the same few places, and that a man who has searched enough houses learns where to look first. It was a reasonable answer. Marlow thanked me for it with great courtesy. Neither of us believed that it was the whole truth, and only one of us knew how much less than the whole.</p>
+<p>He poured the second cup and did not drink it, and I understood that it had been poured for someone else. He glanced, once, at the chair beside me, which was empty, and then at me, and then politely away. I have gone over that glance more often than any other single thing that was done to me on the island. I could not tell you what it was he saw.</p>
+</section>
+
+<section class="page">
+<span class="stamp">10.40 a.m. · Interrogations</span>
+<p>I commenced formal interrogations in the morning room. The atmosphere among the surviving guests has turned brittle and toxic. Each person regards his neighbour not merely with suspicion but with a cold calculation of survival. High tide has swallowed the lower landing, locking us inside this stone tomb.</p>
+<p>The morning room faces north, and has a bare, scrubbed look, as if it were ashamed of itself. I had a table and two chairs set in the middle of the floor, so that the witness should have nothing to lean on and nothing to look at but me. It is an old device and seldom fails. I saw Eleanor Wren falter at once, and Dr. Harcourt look for a window, and Lady Sloane settle herself as for a portrait.</p>
+<p>Between interviews I walked to the glass and watched the weather. The rain had thickened into a kind of grey curtain that hid the sea altogether, and I had the odd impression that the Hall had been lifted off the island and set down in an empty room of cloud. A man can bear a great deal, I have found, so long as there is a horizon. Take that away and he begins to hear himself.</p>
+<p><b>Miss Eleanor Wren</b> says her uncle had grown paranoid, locking rooms unused for decades. She swears she was in her bedchamber all night. When I asked who had carried the tea up to the study, she said she did not know, and then, after a pause, that she supposed her uncle made it himself, as he did when he wished not to be waited on. I wrote it down. I noticed that she looked at her hands.</p>
+<p><b>Dr. Samuel Harcourt</b> admits treating Anna Grey after her fall in 1892 but firmly denies seeing her on the night of her death. He demands to leave the island. I told him, with what patience I could find, that the sea had a longer say in the matter than either of us.</p>
+<p><b>Reverend Matthew Bell</b> acknowledges that Anna sought spiritual counsel but refuses to break the seal of the confessional. His hands shook uncontrollably. I did not press him; there are doors that a man of my trade should not put his shoulder to.</p>
+<p><b>Lady Margaret Sloane</b> answered in polished and immaculate sentences. She claims total ignorance of any scandal, yet would not meet my eyes.</p>
+<p>I asked each of them, at the close, the same question, which was whether they had seen anyone on the island who was not of our number. Eleanor said no. The doctor said no, too quickly. The Reverend said that he had seen no one he could name. Lady Sloane said, in her silken voice, “Only the lamp-keeper, Mr. Vale, whom one does not count,” and smiled, and I found that I had written <i>lamp-keeper</i> in my book in a hand not quite my own.</p>
+</section>
+
+<section class="page">
+<span class="stamp">12.10 p.m. · The Tea-Tray</span>
+<p>I returned to the study, which had been locked behind us at my own insistence, and went over the tea-tray with the thoroughness I would have wished to see in another man. There were two cups on it. One stood by the dead man’s chair, with an inch of cold tea and a bloom of sugar at the bottom. The other had been rinsed under a tap, wiped, and set upside down upon its saucer, and the saucer wiped also.</p>
+<p>It was a dull job, and I did it dully, which is the right way. I measured the distance from the chair to the tray, and from the tray to the door. I noted the dust on the lowest shelf, which was undisturbed, and the dust on the sill of the third window, which was not. I smelled the cold cup and the pot and the sugar bowl in turn, and found nothing but tea.</p>
+<p>A second visitor, then, who drank, or sat, or was offered, and who afterwards took trouble. I wrote it in the margin of this book exactly as I have set it down here. I did not write who had carried the tray up. I did not think to, and I have been asking myself since why a careful man would not.</p>
+<p>The pot was still a quarter full. I did not taste it.</p>
+<div class="note">I will add one thing, which I have not told any person. When I lifted the rinsed cup to the light, I found that the rim of it was not quite dry, and that there was upon the saucer, beneath it, a single grain of something pale and coarse that did not dissolve when I touched it with a wet finger. I put it in a fold of paper. It is in the leather case, with the key on my chain. I have not opened the case since.</div>
+</section>
+
+<section class="page">
+<span class="stamp">1.20 p.m. · The Billiard Room</span>
+<p>Captain Hugh Rook demanded a private audience in the billiard room. He is a broad, weathered man whose left hand trembles whenever his temper rises. He confessed that seventeen years ago he was secretly engaged to Anna Grey, though Sir Alistair opposed the match. On the evening of her death Rook quarrelled fiercely with her near the cliff path. He swears he left her alive, yet admitted accepting five hundred pounds from an anonymous lawyer to leave the island before dawn.</p>
+<p>I record the setting because the setting mattered. The billiard room is on the ground floor of the old wing, a long low chamber with a green baize table under a lamp and a rack of cues against the wall like the pipes of an organ. Rook had chosen it, I think, because it had only one door and he could sit with his back to the wall. He declined a chair and stood with one hand on the cushion of the table, and the lamp threw his shadow across the baize and halfway up the opposite wall.</p>
+<p>He talked for twenty minutes without once looking at me, but at the green cloth, as if the whole history were being played out upon it by small ivory figures. I have noticed that men tell their worst stories to a table, a hearth, a window, anything but the face of the person who has come to hear it. I am used to this, and I did not interrupt.</p>
+<blockquote>“Everyone believed I pushed her. Sir Alistair knew the truth, and he let suspicion ruin my life. But the bribe was paid to keep me silent, not because I was guilty, but because the real killer had deeper pockets than an army captain.”</blockquote>
+<p>As he left, I found a note on the billiard room floor. It was not there when we entered.</p>
+<div class="slip">“The sea remembers what the land forgives. You took gold to leave her to the tide, Captain. Now the tide comes for you.”</div>
+<p>I read it twice and put it into my pocket-book beside the other. I did not show it to the Captain, who had already gone, and I did not think of asking where, in a room with one door, a note might wait for a man to leave. The paper was dry. It had not come in from the rain.</p>
+</section>
+
+<section class="page">
+<span class="stamp">2.45 p.m. · The Cliff Track</span>
+<p>The rain thinned to a grey breath for an hour, and I took the cliff track alone, saying only that I wished to see the ground where the Captain had quarrelled with Miss Grey. It was a plausible reason. It was even true.</p>
+<p>I should say that the Captain’s account of the quarrel had left me with a theory, which I will not set down because it was wrong; and that the weather, which had been so thick all the morning, had begun to thin a little, as if somebody had drawn a hand across the sky. A pale line showed along the western horizon. I took it as a sign, as I have taken so many signs, and went out.</p>
+<p>The ground along the track was soft with the night’s rain, and I noted without much interest that the surface was already marked in several places by earlier feet. Somebody had walked this way since the gale. I did not follow the marks. I told myself that they were the Reverend’s, who walks, though I knew the Reverend’s gait and these were longer in the stride.</p>
+<p>The path is a ribbon of wet shale with the sea grumbling on the left hand, and after a quarter of a mile the fog came up the cliff face like milk climbing a cup. I could not see the Hall behind me. I could not see the edge ahead. And I found that I knew where to put my feet — wide of the gorse, close to the thorn — as one knows the dark of one’s own stair.</p>
+<p>At the end of the track stands a single blackthorn, bent landward by seventeen winters of wind. I put my hand on it. Its bark was cold and beaded with water, and for the space of a breath I was somewhere else: a lantern swinging, a voice saying a word I could not catch, and a smell of wet wool that was not the wool of my coat today.</p>
+<p>I came back with the gulls shrieking at me and my heart going like a hammer. I told myself it was the climb.</p>
+<p>At the garden door I scraped my boots upon the iron scraper, one and then the other. I did not look at the heels.</p>
+</section>
+
+<section class="page">
+<span class="stamp">4.05 p.m. · The Gun Room</span>
+<p>Captain Rook is dead. He was found in the gun room, slumped beside the mahogany cabinet where the hunting rifles are kept, his face turned toward the window and one hand outstretched toward the bell-pull. There was no wound of any kind. Dr. Harcourt remarked upon a dark discoloration about the lips and pronounced it swift cardiac paralysis.</p>
+<p>The gun room is a cold, narrow chamber at the back of the house, floored in slate, with a rack of fowling-pieces along one wall and a glazed cabinet along the other. A single high window lights it, so that the afternoon had hardly any purchase there, and the Captain lay in a kind of permanent dusk. I knelt beside him as I have knelt beside so many, and found, as one always does, that the dead are more particular about being looked at than the living.</p>
+<p>His collar was undone, as if he had put a finger to it in his last moment; one boot had been scuffed along the toe; the bell-pull hung a hand’s breadth beyond his fingers and swayed a very little in the draught. It was the draught, I told myself. There was no cause to think otherwise, and the Captain was a heavy man, and I did not lift him.</p>
+<p>Beneath the cabinet I found a single brass button from a naval tunic, torn away by force; Rook had served in the Navy, and I took it for his own. In his jacket pocket lay a crumpled note in an elegant, slanted hand. The sight of that handwriting sent a chill through my blood. It is a script I knew as well as my own signature, though I dared not speak it aloud before the room.</p>
+<p>I did not say, at the time, that I had not seen the Captain in the house since luncheon, nor that I had been, by my own count, the last to speak with him. I did not say that the note in his pocket was folded in thirds, as I fold mine. I have recorded these facts in the order in which I did not say them.</p>
+</section>
+
+<section class="page">
+<span class="stamp">5.15 p.m. · The Back Stair</span>
+<p>I sat on the bottom step of the back stair, outside the gun room, because my legs would not do what I asked of them. The rest of the household had retreated to the drawing room to be afraid together. I was glad to be spared their faces.</p>
+<p>The stair is a plain wooden flight with a worn rope for a rail, and it smelled of boot-polish and old gun-oil. I do not know how long I sat there. A clock somewhere struck the quarter and then, much later, as I thought, the half. Through the gun-room door, which I had pulled to but not shut, came the sound of nothing at all: the particular quiet of a room from which someone has just been taken away.</p>
+<p>Sergeant Crane came and lowered himself beside me, with the small grunt he has made on every stair since I first knew him. He held out a peppermint on the flat of his maimed thumb, as he did when I was a green constable of twenty-three, and I took it and put it in my mouth. I could taste it for a very long time.</p>
+<blockquote>“He would have talked, lad,” said Crane quietly. “You saw it on him from the soup. A man like that cannot hold a secret. He can only hold a grudge.”</blockquote>
+<blockquote>“He was frightened. That is all he was.”</blockquote>
+<blockquote>“Most of them are, in the end.” He looked at the gun room door, and then at my hands, and then, with great tenderness, away. “Don’t go wringing those, Constable. You will have them raw by morning, and then folk will wonder.”</blockquote>
+<p>I looked down. I had been wringing them. I stopped. When I glanced up again the stair beside me was empty, and the taste of peppermint had gone out of my mouth as though it had never been there.</p>
+</section>
+
+<div class="part">Before the Epilogue</div>
+
+<section class="page quiz" id="quiz">
+<span class="stamp">The Reader’s Verdict</span>
+<h2>Who killed Sir Alistair Wren and Captain Rook?</h2>
+<p>You have read the whole of the journal. The Inspector’s statement waits on the next page, and it will not open until you have committed to an answer. Trust the evidence, and perhaps trust the pen a little less.</p>
+<form id="verdict" autocomplete="off">
+<p class="hint">Every question accepts more than one answer. Tick everything you believe is true; a question counts as correct only when your ticks match the truth exactly.</p>
+<fieldset data-q="culprit">
+<legend>1 · Name the murderer <em>(select all that apply)</em></legend>
+<label><input type="checkbox" name="culprit" value="eleanor"><span>Miss Eleanor Wren<small>Niece and heiress; “she supposed her uncle made the tea himself”</small></span></label>
+<label><input type="checkbox" name="culprit" value="harcourt"><span>Dr. Samuel Harcourt<small>Physician; signed the 1892 certificate; his waistcoat pocket kept coming up empty</small></span></label>
+<label><input type="checkbox" name="culprit" value="beatrice"><span>Mrs. Beatrice Vale<small>Former registry clerk; “You walked in as though you had”</small></span></label>
+<label><input type="checkbox" name="culprit" value="ashcombe"><span>Mr. Lionel Ashcombe<small>Barrister; objected to the word “murder”</small></span></label>
+<label><input type="checkbox" name="culprit" value="clara"><span>Miss Clara Finch<small>Pianist; footsteps in the east gallery</small></span></label>
+<label><input type="checkbox" name="culprit" value="bell"><span>Rev. Matthew Bell<small>Priest; heard Anna Grey’s last confidence</small></span></label>
+<label><input type="checkbox" name="culprit" value="marlow"><span>Mr. Felix Marlow<small>Antiquarian; two cups, one poured for nobody</small></span></label>
+<label><input type="checkbox" name="culprit" value="sloane"><span>Lady Margaret Sloane<small>Dowager; “ask what that man was paid”</small></span></label>
+<label><input type="checkbox" name="culprit" value="crane"><span>Sergeant Josiah Crane<small>The lamp-keeper at the gatehouse</small></span></label>
+<label><input type="checkbox" name="culprit" value="vale"><span>Detective Edmund Vale<small>The narrator himself</small></span></label>
+<label><input type="checkbox" name="culprit" value="group"><span>Several of the guests, acting together<small>A conspiracy of the nine</small></span></label>
+</fieldset>
+<fieldset data-q="crane">
+<legend>2 · Who, exactly, is Sergeant Crane? <em>(select all that apply)</em></legend>
+<label><input type="checkbox" name="crane" value="keeper"><span>A living lamp-keeper, hired by Sir Alistair</span></label>
+<label><input type="checkbox" name="crane" value="accomplice"><span>An accomplice hiding on the island</span></label>
+<label><input type="checkbox" name="crane" value="ferryman"><span>The ferryman, in disguise</span></label>
+<label><input type="checkbox" name="crane" value="dead"><span>A man long dead, whom only the narrator ever sees</span></label>
+<label><input type="checkbox" name="crane" value="real"><span>A real coastal-patrol sergeant who died in 1899</span></label>
+<label><input type="checkbox" name="crane" value="cover"><span>The man who helped hide Anna Grey’s death in 1892</span></label>
+</fieldset>
+<fieldset data-q="gatehouse">
+<legend>3 · What did the Inspector find inside the gatehouse? <em>(select all that apply)</em></legend>
+<label><input type="checkbox" name="gatehouse" value="table"><span>A single table with two chairs set facing one another</span></label>
+<label><input type="checkbox" name="gatehouse" value="lantern"><span>A horn lantern with a freshly trimmed wick</span></label>
+<label><input type="checkbox" name="gatehouse" value="tin"><span>A tin of peppermints with the lid off</span></label>
+<label><input type="checkbox" name="gatehouse" value="nests"><span>A grate full of birds’ nests</span></label>
+<label><input type="checkbox" name="gatehouse" value="bed"><span>A narrow bed with a folded blanket</span></label>
+<label><input type="checkbox" name="gatehouse" value="kettle"><span>A kettle, still warm</span></label>
+<label><input type="checkbox" name="gatehouse" value="pipe"><span>A pipe and a pouch of tobacco</span></label>
+<label><input type="checkbox" name="gatehouse" value="ash"><span>Fresh ash in the grate</span></label>
+</fieldset>
+<fieldset data-q="case">
+<legend>4 · What was in Vale’s leather travelling case? <em>(select all that apply)</em></legend>
+<label><input type="checkbox" name="case" value="env"><span>Nine heavy linen envelopes, unopened</span></label>
+<label><input type="checkbox" name="case" value="ledger"><span>A black pigskin ledger of seventeen years of payments</span></label>
+<label><input type="checkbox" name="case" value="phial"><span>A stoppered phial of pale crystalline alkaloid</span></label>
+<label><input type="checkbox" name="case" value="slips"><span>Two slips of paper: a note to Captain Rook and its draft</span></label>
+<label><input type="checkbox" name="case" value="coat"><span>A coastal-patrol constable’s greatcoat, one button torn off</span></label>
+<label><input type="checkbox" name="case" value="revolver"><span>A loaded revolver</span></label>
+<label><input type="checkbox" name="case" value="rocketkey"><span>The key to the rocket chest in the boathouse</span></label>
+<label><input type="checkbox" name="case" value="letters"><span>A bundle of Anna Grey’s letters</span></label>
+</fieldset>
+<fieldset data-q="deeds">
+<legend>5 · Which of these did Vale do on the night Sir Alistair died? <em>(select all that apply)</em></legend>
+<label><input type="checkbox" name="deeds" value="phial2"><span>Took the phial from Dr. Harcourt’s open case</span></label>
+<label><input type="checkbox" name="deeds" value="tea"><span>Made the tea himself and carried it up at two in the morning</span></label>
+<label><input type="checkbox" name="deeds" value="cup"><span>Took the second cup away, rinsed it, and wiped the saucer</span></label>
+<label><input type="checkbox" name="deeds" value="lock"><span>Locked the study door from the passage side with a copied key</span></label>
+<label><input type="checkbox" name="deeds" value="clock"><span>Stopped the clock in the servants’ hall at ten past two</span></label>
+<label><input type="checkbox" name="deeds" value="shot"><span>Fired a shot into the study ceiling to cover the sound</span></label>
+<label><input type="checkbox" name="deeds" value="rocket"><span>Sent up a distress rocket from the boathouse</span></label>
+<label><input type="checkbox" name="deeds" value="burn"><span>Burned Sir Alistair’s ledger in the library grate</span></label>
+</fieldset>
+<fieldset data-q="facts">
+<legend>6 · Which of these statements are true? <em>(select all that apply)</em></legend>
+<label><input type="checkbox" name="facts" value="realcrane"><span>Sergeant Crane died on 3 January 1899, and Vale carried his coffin</span></label>
+<label><input type="checkbox" name="facts" value="clara2"><span>Miss Clara Finch is Anna Grey’s daughter, not her niece</span></label>
+<label><input type="checkbox" name="facts" value="stride"><span>Captain Rook was killed because he recognised Vale’s stride</span></label>
+<label><input type="checkbox" name="facts" value="button"><span>The torn button found beneath the gun-room cabinet was Vale’s own</span></label>
+<label><input type="checkbox" name="facts" value="signal"><span>The Inspector crossed to the island after receiving a signal</span></label>
+<label><input type="checkbox" name="facts" value="harc"><span>Dr. Harcourt put the poison in Sir Alistair’s tea</span></label>
+<label><input type="checkbox" name="facts" value="keeper2"><span>Sir Alistair had hired a gatehouse keeper</span></label>
+</fieldset>
+<button type="submit">Lock in my verdict</button>
+</form>
+<div id="result" role="status" aria-live="polite" hidden></div>
+</section>
+
+<div id="epilogue" hidden>
+<div class="part">The Inspector’s Epilogue</div>
+
+<section class="page report">
+<span class="stamp">Statement of Inspector Walter Greaves · County Constabulary · Thursday, 21 October 1909</span>
+<p><i>Written at the mainland station and appended to the journal of Detective Edmund Vale at the request of the coroner.</i></p>
+<p>I crossed to Blackthorn Island on the morning of Tuesday the 19th, in the lugger that Tobias Marsh had been able to bring round only when the gale dropped, with Constables Pryor and Lake and a doctor from the mainland hospital. I had received no signal. There was none to receive; the rockets, as I afterwards learned, lay in a locked chest in the boathouse, and the key to its new padlock was found in the waistcoat of the late Sir Alistair Wren, who had wished, it appears, that no one should leave his table before he had said what he had to say. We came because the ferryman, a sour little man who had put ten passengers ashore the Saturday before, could not rid himself of the idea that he had counted wrongly.</p>
+<p>He had counted nine and the Detective. He had been right.</p>
+<p>We found Wren Hall standing, and its household alive, in the way that people are alive who have been shut up together for three days with the dead. Eight of the guests were in the drawing room, around a fire that gave a great deal of light and no heat. Sir Alistair lay in the cold of the study, where the doctor had been persuaded to leave him; Captain Hugh Rook in the gun room, as he had fallen. I shall not describe them further. The coroner has the particulars, and they are not the subject of this note.</p>
+<p>The subject of this note is the man who kept the journal.</p>
+
+<h3>The Gatehouse</h3>
+<p>I asked for Detective Vale. Mrs. Beatrice Vale, a woman I have since come to respect more than I can say, told me that he had gone down to the gatehouse at dusk the night before, as he had gone down every evening since the first, and had not come back to the Hall. “We did not stop him,” she said. “We did not think it our place.”</p>
+<p>The gatehouse is a low square building of black stone, two hundred paces from the Hall. Marsh, who has kept the island for eleven years, told me that it had not been inhabited in his time, nor in the time of his predecessor, nor, so far as he knew, since the lamp it was built to hold had been moved to the new light at the Needles. The slates are sound; the door was not locked. Inside there was a single table, two chairs set facing one another across it, a horn lantern with a freshly trimmed wick, and a tin of peppermints with the lid off. There was no bed, no kettle, no pipe. There was no ash in the grate, and there had not been for years. I can say that with some confidence, because the grate was full of birds’ nests.</p>
+<p>Edmund Vale sat in the farther chair, composed, in his greatcoat, with his hands lying open on the table before him as the hands of the dead man in the study had lain. He looked at me when I came in and rose, and said, “Inspector,” as a man says it who has been expecting a particular face. At his feet stood a leather travelling case with its lid raised. Its small key hung on his watch-chain. He did not try to prevent me looking.</p>
+<p>In the case I found the following, which I list as he would have wished it listed, in order and without improvement:</p>
+<ul>
+<li>Nine heavy linen envelopes, addressed in Sir Alistair’s narrow hand and unopened, one of which bore my own predecessor’s name.</li>
+<li>A narrow black ledger bound in pigskin, in which Sir Alistair had recorded, over seventeen years, every payment made to every person present at his table.</li>
+<li>A glass phial, stoppered, a third full of a pale crystalline alkaloid, with the label of a physician’s case, and a folded paper holding a single grain of the same.</li>
+<li>Two small slips of paper in an elegant, slanted hand. One was a note to Captain Rook, folded in thirds. The other was a draft of the same note in which three words had been struck through and replaced.</li>
+<li>A police constable’s greatcoat of the coastal patrol, of a pattern discontinued in 1895, folded very small, with its second button torn off.</li>
+</ul>
+<p>The button was beneath the gun-room cabinet. It was the Detective’s own.</p>
+
+<h3>What the Household Told Me</h3>
+<p>I took the statements of the eight survivors separately, and I record that they agree with one another to a degree that is almost embarrassing. None of them, in three days, had once spoken to a Sergeant Crane. None of them had been introduced to him. Mr. Felix Marlow, who is the most exact observer I have met outside my own service, told me that on the first evening he had seen the Detective set two cups upon a library table and pour into both. “I do not think he knew that he was doing it,” said Marlow. “I took it for a courtesy toward someone I could not see. I decided it would be impolite to inquire.”</p>
+<p>Dr. Samuel Harcourt had noticed, as a medical man will, that Vale conversed in the study with the empty air at his shoulder, and had stepped aside to let that air pass, as one steps round a person at a door. “I took it for a habit,” he said. “I thought: a lonely man, a hard profession. I did not think. I am ashamed to say that I did not want to think.” Lady Margaret Sloane, who is not a woman to be ashamed of anything, said only that one does not count the lamp-keeper, and that she had assumed the Detective did not either.</p>
+<p>It will be said that eight sensible people ought to have spoken sooner. I say only that fear has a manner of making people courteous, and that a house in which every person believes that one of the others has killed a man is a house in which it is thought rude to notice a stranger’s eccentricities.</p>
+
+<h3>Sergeant Josiah Crane</h3>
+<p>Sergeant Josiah Crane of the coastal patrol was a real man. I have his service record. He served at the station nearest the island for twenty-six years; he lost the end of his left thumb to a rope off the Needles; he came from Cornwall and spoke, by all reports, as slowly as he walked. He died on the third of January 1899, of a failure of the heart, in the infirmary at Port Aldern, and he is buried in the churchyard there. The Detective carried his coffin. The diary says that he had not seen him since the winter of 1898. This is the sort of thing that is true in the way that a man’s account of his own conscience is true.</p>
+<p>Sir Alistair Wren never employed a gatehouse keeper. Nobody had seen the Sergeant on the island; nobody had landed him; no boat had carried him. There is one set of footprints on the track to the gatehouse, and it is the Detective’s.</p>
+<p>I do not pretend to understand what I was shown. The doctor from the mainland, to whom I put the matter in the plainest terms, said that a mind will furnish for itself the confessor that it needs, and that a man who cannot say “I did it” may very well hear a kind voice say, “It was never your doing.” I do not know. I write down only that the Detective spoke of Crane, to me, in the present tense, until almost the last.</p>
+
+<h3>What Was Done in 1892</h3>
+<p>He told me the rest himself, in the gatehouse, with the lantern between us, over about two hours. I have set it down as nearly in his words as I am able. I did not interrupt.</p>
+<p>On the night of Tuesday the 22nd of November 1892, Constable Edmund Vale, aged twenty-three, was on foot patrol along the north cliff track when he was met at the blackthorn by Anna Grey, in her cloak, with a packet of papers. They were pages of Sir Alistair’s own ledger, in which he had recorded payments to a county magistrate and to certain officers of the coast patrol. She had come to ask the young constable to carry them to the mainland. She was twenty-six, and had a child she could not afford to name. She was not afraid of him. That was the thing, he said, that he could never afterwards forgive: she had not been afraid of him.</p>
+<p>He had been a few weeks in the service. He had already, it seems, taken a small sum from Sir Alistair for a small silence, and he knew what the packet would do to him. He put out his hand for it. She stepped back, onto the wet shale, and there was a lantern swinging, and a word he did not catch, and then there was the sound that a person makes who has gone over the edge of a cliff. He stood where he was.</p>
+<p>Sergeant Crane found him there. It was Crane who walked him back to the station, and Crane who told him that it was an order, and that a man is not answerable for an order, and which lines of the report should be struck, and where he should sign. It was Crane who carried the pages to Sir Alistair, and who was paid; the ledger shows two hundred pounds to the Sergeant and one hundred and fifty to the Constable, and, nine years later, five hundred to a Captain who had quarrelled with her on the cliff path that evening and had left her alive. Sir Alistair never accused the young man. He kept his account. He wrote him letters. He sent him a post.</p>
+
+<h3>The Weekend</h3>
+<p>Sir Alistair’s plan, so far as I can reconstruct it from the ledger, was to read his proofs aloud to the table and put the nine envelopes in the post at morning, but only after he had made his guest of honour stand beside him. He wished the Constable to hear it said. I think he wished, at the end of his life, to be forgiven by the only person at the table who could not have accused him of being cruel.</p>
+<p>Vale took the phial from Dr. Harcourt’s open case, which he had closed for him with a courtesy that the doctor remembers still. He made the tea himself and carried it up to the study at two in the morning, by the passage that begins behind the library, which he knew because he had been shown it once in 1892, by Crane, on a night when the Hall was empty and the Sergeant had business with the steward. He took the second cup away after. He rinsed it, and wiped the saucer. He locked the door of the study from the passage side with a key cut from the pattern of its fellow, and laid the original upon the carpet.</p>
+<p>He stopped the clock in the servants’ hall at ten past two, because he could not endure the sound of it.</p>
+<p>Captain Rook he killed in the afternoon, after the billiard room, because Rook, who had been a naval man and a very poor liar, had said the one thing that Vale could not allow to be said again: that on the night she died he had seen a young constable go up the cliff path with a lantern. Rook had not known the face. He had known the stride. He had looked at Vale across the green baize for the length of one breath, and said, “You walk like someone I used to know.”</p>
+<p>After that he was not safe. The Captain took the second cup in the gun room, and put a hand to his collar, and tore a button from the coat of the man who had been kind to him.</p>
+
+<h3>The Journal</h3>
+<p>I have read the journal twice. I began as an Inspector, and I finished it as something less comfortable. It is the most honest document of its kind that I have met, and it is not at all honest. It lists the stairs that complain. It lists the doors. It records the steps he took, and the number of his strides along the east corridor, and the angle at which a man stood against a window. It records, once, in a sentence that I think he did not read over, that he “walked this coast once.” What it does not contain is a quarter of an hour on the morning of the 17th, the quarter of an hour between a man waking and a man crying out, which it admits to having lost. He did not lose it. He has the quarter of an hour exactly. He told it to me at the end, and the tea-tray was in it.</p>
+<p>There are people who write a diary in order to be believed, and people who write one in order to be found. This was a third kind, and it is the rarest. He wrote it so that someone would be obliged to read the things he could not say. In the prologue he speaks of a third distrust, “older still,” that a man does not write down at all: the distrust of the one who is holding the pen. I think he understood very well, from the first page, who it was that would have to be trusted last.</p>
+
+<h3>The Arrest</h3>
+<p>He gave me no trouble. He asked for three things. He asked that the lantern be put out properly, and not left burning, because it was a waste of oil. He asked that his father’s watch be returned to him from the Hall, where he had left it upon the writing table in the north bedchamber; I fetched it myself. And he asked, as we stood up, whether the Sergeant would be permitted to come to the hearing.</p>
+<p>I told him that Josiah Crane had been dead for ten years, and that he had carried the coffin.</p>
+<blockquote>“Yes,” he said. “Yes. I remember the weight of it.”</blockquote>
+<p>He took the watch, and held it to his ear in the way that, I now understand, a man might hold it who had once watched another do so, and he looked at it for a moment, and said, very gently, that it still lost its four minutes. It does. I have checked.</p>
+<p>Miss Clara Finch, who was found on the third evening to be Anna Grey’s daughter and not her niece, has the papers she came for. Miss Eleanor Wren has inherited a house in which she says she will not sleep. The peppermint tin remained in the gatehouse. When the constables lifted the lid, it was empty, and had been so, by the dust, for some years.</p>
+<p>— Walter Greaves, Inspector<br>21 October 1909</p>
+</section>
+
+<div class="foot">— Finis · The Blackthorn Island Diary, Extended Edition —</div>
+</div>
+<noscript><style>#epilogue[hidden]{display:block!important}#quiz{display:none}</style></noscript>
+</main>
+<script>
+(function(){
+var form=document.getElementById('verdict'),epi=document.getElementById('epilogue'),out=document.getElementById('result');
+var ANS={"culprit": ["vale"], "crane": ["dead", "real", "cover"], "gatehouse": ["table", "lantern", "tin", "nests"], "case": ["env", "ledger", "phial", "slips", "coat"], "deeds": ["phial2", "tea", "cup", "lock", "clock"], "facts": ["realcrane", "clara2", "stride", "button"]};
+var TITLES={"culprit": "1 \u00b7 Name the murderer", "crane": "2 \u00b7 Who, exactly, is Sergeant Crane?", "gatehouse": "3 \u00b7 What did the Inspector find inside the gatehouse?", "case": "4 \u00b7 What was in Vale\u2019s leather travelling case?", "deeds": "5 \u00b7 Which of these did Vale do on the night Sir Alistair died?", "facts": "6 \u00b7 Which of these statements are true?"};
+function picked(n){var e=form.querySelectorAll('input[name="'+n+'"]:checked'),a=[];for(var i=0;i<e.length;i++)a.push(e[i].value);return a}
+function lock(state){var i=form.querySelectorAll('input');for(var k=0;k<i.length;k++)i[k].disabled=state}
+function clearMarks(){var l=form.querySelectorAll('label');for(var k=0;k<l.length;k++)l[k].className=''}
+form.addEventListener('submit',function(ev){
+ev.preventDefault();
+out.hidden=false;
+var names=Object.keys(ANS),empty=[];
+for(var i=0;i<names.length;i++){if(!picked(names[i]).length)empty.push(i+1)}
+if(empty.length){out.innerHTML='<p>Tick at least one answer in every question before the Inspector will speak. Still blank: question '+empty.join(', ')+'.</p>';return}
+var correct=0,h='',rows='';
+for(var q=0;q<names.length;q++){
+ var n=names[q],want=ANS[n],got=picked(n),right=0,wrong=0,miss=0;
+ var inputs=form.querySelectorAll('input[name="'+n+'"]');
+ for(var k=0;k<inputs.length;k++){
+  var v=inputs[k].value,isA=want.indexOf(v)>-1,isP=inputs[k].checked,lb=inputs[k].parentNode;
+  if(isA&&isP){right++;lb.className='good'}else if(!isA&&isP){wrong++;lb.className='bad'}else if(isA&&!isP){miss++;lb.className='miss'}
+ }
+ var ok=wrong===0&&miss===0;if(ok)correct++;
+ rows+='<li><span class="'+(ok?'ok':'no')+'">Question '+(q+1)+(ok?': correct.':': not quite.')+'</span> '+right+' of '+want.length+' right answers found'+(wrong?', '+wrong+' wrong tick'+(wrong>1?'s':''):'')+'.</li>';
+}
+h+='<p class="score"><b>'+correct+' of '+names.length+' questions answered exactly.</b></p><ul>'+rows+'</ul>';
+if(ANS.culprit.length===1&&picked('culprit').join()===ANS.culprit.join()) h+='<p>You saw through the pen. The murderer is the man who kept the journal.</p>';
+else h+='<p>The answer was closer to the narrator than you looked.</p>';
+h+='<p>The clues were there all along:</p><ul>'+
+'<li>He stepped over the ninth stair before anyone warned him of it.</li>'+
+'<li>He found the hidden panel “third from the hearth” without being told.</li>'+
+'<li>Marlow saw him set two cups and pour for someone no one else could see.</li>'+
+'<li>Sir Alistair called him “Constable” before anyone else had used the word.</li>'+
+'<li>No guest ever greeted, or was introduced to, the lamp-keeper.</li></ul>'+
+'<p>'+(correct===names.length?'A perfect verdict. ':'')+'The Inspector’s statement is now open below.</p>'+
+'<p><button type="button" class="ghost" id="retake">Retake the verdict</button></p>';
+out.innerHTML=h;
+lock(true);
+form.querySelector('button[type=submit]').disabled=true;
+epi.hidden=false;
+document.getElementById('retake').addEventListener('click',function(){
+ form.reset();clearMarks();lock(false);form.querySelector('button[type=submit]').disabled=false;
+ out.hidden=true;out.innerHTML='';epi.hidden=true;
+ document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+});
+setTimeout(function(){try{epi.scrollIntoView({behavior:'smooth'})}catch(e){}},400);
+});
+})();
+</script>
+</body>
+</html>
